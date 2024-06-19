@@ -8,7 +8,7 @@ abstract class AppRouter {
   static final Map<String, WidgetBuilder> generateRoutes = {
     RouterHelper.home: (context) =>
         BlocProvider(
-          create: (context) => HomeCubit(),
+          create: (context) => HomeCubit()..fetchData(),
           child: const HomeScreen(),
         ),
   };
