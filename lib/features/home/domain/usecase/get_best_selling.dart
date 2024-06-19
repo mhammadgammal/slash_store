@@ -6,7 +6,7 @@ class GetBestSelling extends BaseUseCase{
   ProductsRepositoryImpl productsRepo = ProductsRepositoryImpl();
 
   @override
-  Future<ProductModel> perform() async{
+  Future<List<ProductModel>> perform() async{
     return await productsRepo.getBestSelling();
   }
 
