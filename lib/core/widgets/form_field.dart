@@ -1,8 +1,8 @@
 import 'package:slash_store/core/theme/app_color.dart';
 import 'package:flutter/material.dart';
 
-class FormFiled extends StatefulWidget {
-  const FormFiled({
+class SlashFormField extends StatefulWidget {
+  const SlashFormField({
     super.key,
     required this.controller,
     required this.inputType,
@@ -38,10 +38,10 @@ class FormFiled extends StatefulWidget {
   final Color cursorColor;
 
   @override
-  State<FormFiled> createState() => _FormFiledState();
+  State<SlashFormField> createState() => _FormFiledState();
 }
 
-class _FormFiledState extends State<FormFiled> {
+class _FormFiledState extends State<SlashFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -56,17 +56,17 @@ class _FormFiledState extends State<FormFiled> {
         iconColor: widget.iconColor,
         border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20.0),
-            borderSide: const BorderSide(color: AppColor.complementaryColor2)),
+            borderSide: const BorderSide(color: AppColor.searchColor)),
         enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20.0),
-            borderSide: const BorderSide(color: AppColor.complementaryColor2)),
+            borderSide: const BorderSide(color: AppColor.searchColor)),
         disabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20.0),
-            borderSide: const BorderSide(color: AppColor.complementaryColor2)),
+            borderSide: const BorderSide(color: AppColor.searchColor)),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(20.0),
           borderSide: const BorderSide(
-              color: AppColor.complementaryColor2, style: BorderStyle.solid),
+              color: AppColor.searchColor, style: BorderStyle.solid),
         ),
       ),
       maxLines: widget.maxLines,
