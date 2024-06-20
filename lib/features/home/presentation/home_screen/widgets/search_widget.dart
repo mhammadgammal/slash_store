@@ -19,19 +19,30 @@ class SearchWidget extends StatelessWidget {
           Expanded(
               flex: 4,
               child: Container(
-                decoration: BoxDecoration(
-                  //rgba(228, 228, 228, 0.52)
-                  color: AppColor.searchColor,
-                  borderRadius: BorderRadiusDirectional.all(Radius.circular(10.0))
-                ),
+                decoration: const BoxDecoration(
+                    //rgba(228, 228, 228, 0.52)
+                    color: AppColor.searchColor,
+                    borderRadius:
+                        BorderRadiusDirectional.all(Radius.circular(10.0))),
                 child: SlashFormField(
                     controller: TextEditingController(),
                     inputType: TextInputType.text,
                     fieldLabel: 'Search here.',
-                    icon: Icon(Icons.search_outlined),
+                    icon: const Icon(Icons.search_outlined),
                     validate: null),
               )),
-          Expanded(flex: 1,  child: Image.asset('assets/images/modify_slider.png'))
+          const SizedBox(width: 10.0,),
+          Expanded(
+              flex: 1,
+              child: Container(
+                width: 313.1,
+                  height: 64.0,
+                  decoration: const BoxDecoration(
+                      //rgba(228, 228, 228, 0.52)
+                      color: AppColor.searchColor,
+                      borderRadius:
+                          BorderRadiusDirectional.all(Radius.circular(10.0))),
+                  child: Image.asset('assets/images/modify_slider.png')))
         ],
       ),
     );
