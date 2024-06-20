@@ -36,7 +36,7 @@ class HomeCubit extends Cubit<HomeState> {
     bestSelling = await getBestSellingUseCase.perform();
     emit(BestSellingDataFetchedState());
 
-    newArrivals = await getBestSellingUseCase.perform();
+    newArrivals = await getNewArrivalsUseCase.perform();
     emit(NewArrivalsDataFetchedState());
 
     recommendedForYou = await getRecommendedUseCase.perform();

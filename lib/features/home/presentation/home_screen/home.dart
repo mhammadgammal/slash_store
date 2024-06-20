@@ -1,14 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:slash_store/features/home/presentation/home_screen/widgets/offers_widget.dart';
 import 'cubit/home_cubit.dart';
-import 'widgets/best_selling_widget.dart';
+import 'widgets/products_widget.dart';
 import 'widgets/categories_widget.dart';
 import 'widgets/location_widget.dart';
-import 'widgets/new_arrivals_widget.dart';
-import 'widgets/recommended_widget.dart';
 import 'widgets/search_widget.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -55,17 +51,19 @@ class HomeScreen extends StatelessWidget {
               CategoryWidget(
                 categories: cubit.categories,
               ),
-              const SizedBox(height: 10.0),
-              BestSellingWidget(
-                bestSelling: cubit.bestSelling,
+              ProductsWidget(
+                header: 'Best Selling',
+                products: cubit.bestSelling,
               ),
               const SizedBox(height: 10.0),
-              NewArrivalsWidget(
-                newArrivals: cubit.newArrivals,
+              ProductsWidget(
+                header: 'New Arrivals',
+                products: cubit.newArrivals,
               ),
               const SizedBox(height: 10.0),
-              RecommendedWidget(
-                recommended: cubit.recommendedForYou,
+              ProductsWidget(
+                header: 'Recommended For You',
+                products: cubit.recommendedForYou,
               ),
             ],
           ),

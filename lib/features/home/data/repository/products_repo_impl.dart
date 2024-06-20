@@ -18,7 +18,7 @@ class ProductsRepositoryImpl implements ProductsRepository {
 
   @override
   Future<List<ProductModel>> getNewArrivals() async {
-    var newArrivalsResponse = await ProductsApiService.getBestSelling();
+    var newArrivalsResponse = await ProductsApiService.getNewArrivals();
     var newArrivalsData = newArrivalsResponse.data;
     print('bestSelling Response: $newArrivalsData');
     List<ProductModel> newArrivals = [];
@@ -30,7 +30,7 @@ class ProductsRepositoryImpl implements ProductsRepository {
 
   @override
   Future<List<ProductModel>> getRecommendedForYou() async {
-    var recommendedForYouResponse = await ProductsApiService.getBestSelling();
+    var recommendedForYouResponse = await ProductsApiService.getRecommendedForYou();
     var recommendedForYouData = recommendedForYouResponse.data;
     print('bestSelling Response: $recommendedForYouData');
     List<ProductModel> recommendedForYou = [];
