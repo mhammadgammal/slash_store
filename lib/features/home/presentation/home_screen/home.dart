@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:slash_store/features/home/presentation/home_screen/widgets/offers_widget.dart';
 import 'cubit/home_cubit.dart';
@@ -47,8 +48,12 @@ class HomeScreen extends StatelessWidget {
                   changeCurrentIndex: cubit.changeCurrentIndex,
                 ),
               ),
-
-
+              Expanded(
+                child: CategoryWidget(
+                  categories: cubit.categories,
+                ),
+              ),
+              const SizedBox(height: 10.0),
             ],
           ),
         );

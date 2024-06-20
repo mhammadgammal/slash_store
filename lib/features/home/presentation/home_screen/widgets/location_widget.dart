@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:slash_store/core/theme/app_images.dart';
 
 class LocationWidget extends StatelessWidget {
   const LocationWidget({super.key});
@@ -7,11 +8,11 @@ class LocationWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Image.asset('assets/images/Vector.png'),
-        SizedBox(
+        Image.asset(AppImages.locationIc),
+        const SizedBox(
           width: 5.0,
         ),
-        Column(
+        const Column(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.baseline,
           textBaseline:TextBaseline.alphabetic, // Align by text baseline
@@ -20,12 +21,12 @@ class LocationWidget extends StatelessWidget {
               'Nasr City',
               style: TextStyle(
                 fontSize: 20.0,
-                fontFamily: 'Urbanist',
+                fontFamily: 'Urbanist', 
                 color: Colors.black,
                 fontWeight: FontWeight.normal,
               ),
             ),
-            const SizedBox(width: 4.0), // Add some spacing
+            SizedBox(width: 4.0), // Add some spacing
             Text(
               'Cairo',
               style: TextStyle(
