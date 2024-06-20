@@ -17,17 +17,17 @@ class OfferWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      Expanded(
-        child: CarouselSlider(
-            items: offers,
-            options: CarouselOptions(
-              autoPlay: true,
-              onPageChanged: (index, reason) {
-                changeCurrentIndex(index);
-              },
-            )),
-      ),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+      CarouselSlider(
+          items: offers,
+          options: CarouselOptions(
+            autoPlay: true,
+            onPageChanged: (index, reason) {
+              changeCurrentIndex(index);
+            },
+          )),
       AnimatedSmoothIndicator(
           activeIndex: activeIndex,
           count: offers.length,

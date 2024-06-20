@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class CategoryWidget extends StatelessWidget {
   const CategoryWidget({super.key, required this.categories});
@@ -6,12 +7,16 @@ class CategoryWidget extends StatelessWidget {
   final List<(String, String)> categories;
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Container(
       padding: const EdgeInsetsDirectional.all(10.0),
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height,
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            
             children: [
               Text(
                 'Categories',
@@ -33,24 +38,28 @@ class CategoryWidget extends StatelessWidget {
               ]),
             ],
           ),
-          Expanded(
-              child: ListView.builder(
-            itemBuilder: (_, index) => Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: CircleAvatar(
-                    backgroundColor: const Color.fromRGBO(41, 41, 41, 1.0),
-                    radius: 35.0,
-                    child: Image.asset(categories[index].$2),
-                  ),
+          //Expanded
+          Flexible(
+            fit: FlexFit.tight,
+            flex: 1,
+            child: ListView.builder(
+                        itemBuilder: (_, index) => Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: CircleAvatar(
+                  backgroundColor: const Color.fromRGBO(41, 41, 41, 1.0),
+                  radius: 35.0,
+                  child: Image.asset(categories[index].$2),
                 ),
-                Text(categories[index].$1, style: TextStyle(fontSize: 20.0,),),
-              ],
-            ),
-            scrollDirection: Axis.horizontal,
-            itemCount: categories.length,
-          ))
+              ),
+              Text(categories[index].$1, style: TextStyle(fontSize: 20.0,),),
+            ],
+                        ),
+                        scrollDirection: Axis.horizontal,
+                        itemCount: categories.length,
+                      ),
+          )
         ],
       ),
     );
