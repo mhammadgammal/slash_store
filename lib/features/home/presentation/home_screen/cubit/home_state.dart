@@ -5,6 +5,8 @@ sealed class HomeState {}
 
 final class HomeInitial extends HomeState {}
 
+final class OfferIndexChangedState extends HomeState {}
+
 final class BestSellingDataFetchedState extends HomeState {}
 
 final class NewArrivalsDataFetchedState extends HomeState {}

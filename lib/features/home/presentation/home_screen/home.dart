@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:slash_store/features/home/presentation/home_screen/widgets/offers_widget.dart';
 import 'cubit/home_cubit.dart';
+import 'widgets/categories_widget.dart';
 import 'widgets/location_widget.dart';
 import 'widgets/search_widget.dart';
 
@@ -12,6 +13,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
+        var cubit = HomeCubit.get(context);
         return Scaffold(
           appBar: AppBar(
             title: Row(
@@ -19,7 +21,10 @@ class HomeScreen extends StatelessWidget {
               children: [
                 const Text(
                   'Slash.',
-                  style: TextStyle(fontFamily: 'Urbanist', fontSize: 30.0, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontFamily: 'Urbanist',
+                      fontSize: 30.0,
+                      fontWeight: FontWeight.bold),
                 ),
                 const LocationWidget(),
                 Stack(alignment: Alignment.topRight, children: [
@@ -32,9 +37,17 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          body: const Column(
+          body: Column(
             children: [
-              SearchWidget(),
+              const SearchWidget(),
+              Expanded(
+                child: OfferWidget(
+                  offers: cubit.offers,
+                  activeIndex: cubit.activeIndex,
+                  changeCurrentIndex: cubit.changeCurrentIndex,
+                ),
+              ),
+
 
             ],
           ),
