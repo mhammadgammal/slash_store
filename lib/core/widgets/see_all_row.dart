@@ -9,13 +9,17 @@ class SeeAllRow extends StatelessWidget {
     return Row(children: [
       GestureDetector(
         onTap: onSeeAllRowTab,
-        child: const Text(
-          'See all',
-          style: TextStyle(
-              fontSize: 25.0,
-              color: Colors.black,
-              fontWeight: FontWeight.w600,
-              fontFamily: 'Urbanist'),
+        child: MediaQuery(
+          data: MediaQuery.of(context)
+              .copyWith(textScaler: const TextScaler.linear(1.0)),
+          child: const Text(
+            'See all',
+            style: TextStyle(
+                fontSize: 25.0,
+                color: Colors.black,
+                fontWeight: FontWeight.w600,
+                fontFamily: 'Urbanist'),
+          ),
         ),
       ),
       const Icon(Icons.arrow_forward_ios),

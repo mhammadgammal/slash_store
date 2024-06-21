@@ -19,6 +19,7 @@ class OfferWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
       print('width: ${constraints.maxWidth}');
+      print('height: ${constraints.maxHeight}');
       return Column(mainAxisSize: MainAxisSize.min, children: [
         CarouselSlider(
             items: offers,
