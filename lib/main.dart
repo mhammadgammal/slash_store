@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       title: 'Slash Store',
       theme: AppTheme.lightTheme,
       routes: AppRouter.generateRoutes,
-      initialRoute: RouterHelper.home,
+      initialRoute: RouterHelper.layout,
     );
   }
 }
