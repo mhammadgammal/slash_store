@@ -8,7 +8,8 @@
 
 <h2>Project Screenshots:</h2>
 
-<img src="https://drive.google.com/file/d/18lQcMUsqWRwlrPt5cc1uTfC0RwMbHjD2/view?usp=drive_link" alt="project-screenshot" width="400" height="400/">
+https://github.com/mhammadgammal/slash_store/assets/73348912/c2f40254-21cb-4e32-a8f9-7d7706b3044a
+
 
 <img src="https://drive.google.com/file/d/1dVp_aEtjWhn5R888UlnUZNMbXkAxkJG3/view?usp=drive_link" alt="project-screenshot" width="400" height="400/">
 
