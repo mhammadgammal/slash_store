@@ -1,7 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:slash_store/core/router/navigator.dart';
-import 'package:slash_store/core/router/router_helper.dart';
 import 'package:slash_store/core/theme/app_images.dart';
 import 'package:slash_store/features/home/domain/entity/product_model.dart';
 import 'package:slash_store/features/home/domain/usecase/get_best_selling.dart';
@@ -42,26 +40,22 @@ class HomeCubit extends Cubit<HomeState> {
     ),
   ];
 
-  List<(String ic, String title, String route)> bottomNavItems = [
+  List<(String ic, String title)> bottomNavItems = [
     (
       AppImages.homeIc,
       'Home',
-      RouterHelper.home,
     ),
     (
       AppImages.heartIc,
       'Favorite',
-      RouterHelper.favorites,
     ),
     (
       AppImages.cartIc,
       'Cart',
-      RouterHelper.cart,
     ),
     (
       AppImages.profileIc,
       'Profile',
-      RouterHelper.profile,
     ),
   ];
   List<String> bottomNavIcs = [
@@ -92,7 +86,7 @@ class HomeCubit extends Cubit<HomeState> {
 
   void changeCurrentBottomNavIndex(context, int index) {
     currentBottomNavIndex = index;
-    AppNavigator.navigateToPopPush(context, bottomNavItems[index].$3);
+
     emit(BottomNavBarIndexChangedState());
   }
 }

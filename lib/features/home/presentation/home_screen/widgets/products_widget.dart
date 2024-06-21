@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:slash_store/core/router/navigator.dart';
 import 'package:slash_store/core/widgets/see_all_row.dart';
 import '../../../domain/entity/product_model.dart';
 
@@ -12,10 +13,7 @@ class ProductsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsetsDirectional.only(
-        top: 10.0,
-        start: 10.0,
-        end: 10.0,
-        bottom: 0.0),
+          top: 10.0, start: 10.0, end: 10.0, bottom: 0.0),
       width: MediaQuery.of(context).size.width,
       height: 280.0,
       child: Column(
@@ -33,7 +31,10 @@ class ProductsWidget extends StatelessWidget {
                       Theme.of(context).textTheme.bodyMedium!.fontFamily,
                 ),
               ),
-              const SeeAllRow(),
+              SeeAllRow(
+                onSeeAllRowTab: () =>
+                    AppNavigator.navigateToAllProducts(context, products),
+              ),
             ],
           ),
           Flexible(

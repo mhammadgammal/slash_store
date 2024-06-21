@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:slash_store/core/router/navigator.dart';
 import 'package:slash_store/core/widgets/see_all_row.dart';
 
 class CategoryWidget extends StatelessWidget {
@@ -26,7 +27,7 @@ class CategoryWidget extends StatelessWidget {
                       Theme.of(context).textTheme.bodyMedium!.fontFamily,
                 ),
               ),
-              const SeeAllRow(),
+              SeeAllRow(onSeeAllRowTab: () => AppNavigator.navigateToAllCategories(context, categories),),
             ],
           ),
           //Expanded

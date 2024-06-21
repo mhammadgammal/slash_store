@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:slash_store/features/cart/cart_screen.dart';
-import 'package:slash_store/features/favorite/favorite_screen.dart';
-import 'package:slash_store/features/home/presentation/home_screen/home.dart';
+import 'package:slash_store/core/router/navigator.dart';
+import 'package:slash_store/core/router/router_helper.dart';
 import 'package:slash_store/features/layout/cubit/app_cubit.dart';
 import 'package:slash_store/features/home/presentation/home_screen/widgets/location_widget.dart';
 
@@ -26,13 +26,16 @@ class AppLayout extends StatelessWidget {
                     fontWeight: FontWeight.bold),
               ),
               const LocationWidget(),
-              Stack(alignment: Alignment.topRight, children: [
-                Image.asset('assets/images/reminder.png'),
-                const CircleAvatar(
-                  radius: 5.0,
-                  backgroundColor: Colors.red,
-                )
-              ]),
+              GestureDetector(
+                onTap: () => AppNavigator.navigateToPush(context, RouterHelper.reminder),
+                child: Stack(alignment: Alignment.topRight, children: [
+                  Image.asset('assets/images/reminder.png'),
+                  const CircleAvatar(
+                    radius: 5.0,
+                    backgroundColor: Colors.red,
+                  )
+                ]),
+              ),
             ],
           ),
         ),
@@ -74,7 +77,7 @@ class AppLayout extends StatelessWidget {
                   width: 100.0,
                   height: 8.0,
                   decoration: const BoxDecoration(
-                    color: Colors.black, // Indicator color
+                    color: Colors.black,
                     shape: BoxShape.rectangle,
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(10.0),
@@ -91,13 +94,3 @@ class AppLayout extends StatelessWidget {
     });
   }
 }
-/*                   case 0:
-                    return const HomeScreen();
-                  case 1:
-                    return const Center(child: Text('Search Screen'));
-                  case 2:
-                    return const Center(child: Text('Cart Screen'));
-                  case 3:
-                    return const Center(child: Text('Profile Screen'));
-                  default:
-                    return const HomeScreen(); */

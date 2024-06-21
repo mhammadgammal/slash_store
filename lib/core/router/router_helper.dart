@@ -1,8 +1,6 @@
 abstract class RouterHelper {
   static const layout = '/';
-  static const home = '/home';
-  static const search = '/search';
-  static const cart = '/cart';
-  static const favorites = '/favorites';
-  static const profile = '/profile';
+  static const reminder = '/reminder';
+  static const seeAllProducts = '/see_all_products';
+  static const seeAllCategories = '/see_all_categories';
 }
