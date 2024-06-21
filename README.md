@@ -8,14 +8,14 @@
 
 <h2>Project Screenshots:</h2>
 
-https://github.com/mhammadgammal/slash_store/assets/73348912/c2f40254-21cb-4e32-a8f9-7d7706b3044a
+<img src="https://github.com/mhammadgammal/slash_store/assets/73348912/c2f40254-21cb-4e32-a8f9-7d7706b3044a"/>
 
 
-<img src="https://drive.google.com/file/d/1dVp_aEtjWhn5R888UlnUZNMbXkAxkJG3/view?usp=drive_link" alt="project-screenshot" width="400" height="400/">
+<img src="https://github.com/mhammadgammal/slash_store/assets/73348912/1aaca1f2-82e2-413f-9ff6-bc9934ff8c5d" alt="project-screenshot">
 
-<img src="https://drive.google.com/file/d/17vNxg5G8er8CIHAeDciqm_XsJXP5XUiL/view?usp=drive_link" alt="project-screenshot" width="400" height="400/">
+<img src="https://github.com/mhammadgammal/slash_store/assets/73348912/1c6c96d3-c175-4324-bdbc-5777058d3a79">
 
-<img src="https://drive.google.com/file/d/1K0QW8l8MH84m-MF1Kgp_67iPctpmZIQq/view?usp=drive_link" alt="project-screenshot" width="400" height="400/">
+<img src="https://github.com/mhammadgammal/slash_store/assets/73348912/05aa2874-e1a6-4bc3-af7a-064a8aa2eebc">
 
   
   
