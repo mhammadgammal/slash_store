@@ -26,4 +26,9 @@ abstract class AppImages {
   static const artifactsIc = 'assets/images/categories/artifacts.png';
   static const petsCareIc = 'assets/images/categories/pet.png';
 
+  //bottom navigation bar icons
+  static const homeIc = 'assets/images/bottom_nav_ic/home.png';
+  static const heartIc = 'assets/images/bottom_nav_ic/heart.png';
+  static const cartIc = 'assets/images/bottom_nav_ic/shopping-cart.png';
+  static const profileIc = 'assets/images/bottom_nav_ic/profile-circle.png';
 }
