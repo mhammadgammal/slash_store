@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
                       crossAxisCount:
                           1, // Adjust the number of columns as needed
                       childAspectRatio: constraintes.maxWidth >= 1235
-                          ? 20.0 / 3
+                          ? 13 / 3
                           : constraintes.maxWidth >= 600.0
                               ? 10.0 / 3.0
                               : 20.0 /
