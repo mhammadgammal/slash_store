@@ -4,7 +4,7 @@
 
 <h2>🚀 Demo</h2>
 
-[https://drive.google.com/drive/u/0/folders/1lB8SVr2Om5saYXzHHHTZZvYhZWxRnr8Q](https://drive.google.com/drive/u/0/folders/1lB8SVr2Om5saYXzHHHTZZvYhZWxRnr8Q)
+[https://drive.google.com/file/d/1Oiuti5F5u7qetU7DbuP8YYuhQaLpaEMT/view?usp=drive\_link](https://drive.google.com/file/d/1Oiuti5F5u7qetU7DbuP8YYuhQaLpaEMT/view?usp=drive_link)
 
 <h2>Project Screenshots:</h2>
 
