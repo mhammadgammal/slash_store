@@ -17,26 +17,39 @@ class OfferWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-      CarouselSlider(
-          items: offers,
-          options: CarouselOptions(
-            autoPlay: true,
-            onPageChanged: (index, reason) {
-              changeCurrentIndex(index);
-            },
-          )),
-      AnimatedSmoothIndicator(
-          activeIndex: activeIndex,
-          count: offers.length,
-          axisDirection: Axis.horizontal,
-          effect: const WormEffect(
-            activeDotColor: AppColor.complementaryColor,
-            dotWidth: 20.0,
-            dotHeight: 10.0,
-          ))
-    ]);
+    return LayoutBuilder(builder: (context, constraints) {
+      print('width: ${constraints.maxWidth}');
+      return Column(mainAxisSize: MainAxisSize.min, children: [
+        CarouselSlider(
+            items: offers,
+            options: CarouselOptions(
+              aspectRatio: constraints.maxWidth >= 600.0
+                  ? 8.0
+                  : constraints.maxWidth >= 450.0
+                      ? 6.0
+                      : 16.0 / 9.0,
+              viewportFraction: constraints.maxWidth >= 450.0 ? 0.9 : 0.8,
+              autoPlay: true,
+              onPageChanged: (index, reason) {
+                changeCurrentIndex(index);
+              },
+            )),
+        Visibility(
+          visible: constraints.maxWidth >= 450.0,
+          child: const SizedBox(
+            height: 10.0,
+          ),
+        ),
+        AnimatedSmoothIndicator(
+            activeIndex: activeIndex,
+            count: offers.length,
+            axisDirection: Axis.horizontal,
+            effect: WormEffect(
+              activeDotColor: AppColor.complementaryColor,
+              dotWidth: constraints.maxWidth >= 450.0? 40.0: 20.0,
+              dotHeight: 10.0,
+            ))
+      ]);
+    });
   }
 }
