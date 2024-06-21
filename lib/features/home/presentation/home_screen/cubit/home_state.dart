@@ -11,4 +11,6 @@ final class BestSellingDataFetchedState extends HomeState {}
 
 final class NewArrivalsDataFetchedState extends HomeState {}
 
+final class BottomNavBarIndexChangedState extends HomeState {}
+
 final class RecommendedForYouDataFetchedState extends HomeState {}

@@ -15,9 +15,11 @@ class HomeCubit extends Cubit<HomeState> {
   var getNewArrivalsUseCase = GetNewArrivals();
   var getRecommendedUseCase = GetRecommendedForYou();
 
-  int activeIndex = 0;
+  int activeSliderIndex = 0;
+  int currentBottomNavIndex = 0;
 
-  List<Image> offers= [
+  //offers record
+  List<Image> offers = [
     Image.asset(AppImages.blackFridayOffer),
     Image.asset(AppImages.bestDealOffer),
   ];
@@ -28,11 +30,27 @@ class HomeCubit extends Cubit<HomeState> {
     ('Games', AppImages.gamesIc),
     ('Accessories', AppImages.accessoriesIc),
     ('Books', AppImages.booksIc),
+    (
+      'Artifacts',
+      AppImages.artifactsIc,
+    ),
+    (
+      'Pets Care',
+      AppImages.petsCareIc,
+    ),
   ];
 
+  List<String> bottomNavIcs = [
+    AppImages.homeIc,
+    AppImages.heartIc,
+    AppImages.cartIc,
+    AppImages.profileIc,
+  ];
+
+  List<String> bottomNavTitles = ['Home', 'Favorite', 'Cart', 'Profile'];
   static HomeCubit get(context) => BlocProvider.of(context);
   List<ProductModel> bestSelling = [], newArrivals = [], recommendedForYou = [];
-  Future<void> fetchData() async{
+  Future<void> fetchData() async {
     bestSelling = await getBestSellingUseCase.perform();
     emit(BestSellingDataFetchedState());
 
@@ -43,8 +61,13 @@ class HomeCubit extends Cubit<HomeState> {
     emit(RecommendedForYouDataFetchedState());
   }
 
-  void changeCurrentIndex(int index) {
-    activeIndex = index;
+  void changeCurrentSliderIndex(int index) {
+    activeSliderIndex = index;
     emit(OfferIndexChangedState());
+  }
+
+  void changeCurrentBottomNavIndex(int index) {
+    currentBottomNavIndex = index;
+    emit(BottomNavBarIndexChangedState());
   }
 }
