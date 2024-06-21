@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:slash_store/features/home/presentation/home_screen/widgets/offers_widget.dart';
 import 'cubit/home_cubit.dart';
@@ -38,6 +39,59 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
+          bottomNavigationBar: Stack(
+            children: [
+              BottomNavigationBar(
+                currentIndex: cubit.currentBottomNavIndex,
+                onTap: cubit.changeCurrentBottomNavIndex,
+                fixedColor: Colors.black,
+                type: BottomNavigationBarType.fixed,
+                enableFeedback: false,
+                unselectedLabelStyle: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 15.0,
+                    fontFamily: 'Urbanist'),
+                selectedLabelStyle: const TextStyle(
+                    color: Colors.black,
+                    fontFamily: 'Urbanist',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15.0),
+                items: List.generate(
+                  cubit.bottomNavTitles.length,
+                  (index) => BottomNavigationBarItem(
+                    icon: Image.asset(cubit.bottomNavIcs[index]),
+                    label: cubit.bottomNavTitles[index],
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 8.0,
+              ),
+              Positioned(
+                top: 0,
+                left: MediaQuery.of(context).size.width /
+                    cubit.bottomNavTitles.length *
+                    cubit.currentBottomNavIndex,
+                width: MediaQuery.of(context).size.width /
+                    cubit.bottomNavTitles.length,
+                
+                child: Center(
+                  child: Container(
+                    width: 100.0,
+                    height: 8.0, 
+                    decoration: const BoxDecoration(
+                      color: Colors.black, // Indicator color
+                      shape: BoxShape.rectangle,
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(10.0),
+                        bottomRight: Radius.circular(10.0),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
           body: ListView(
             shrinkWrap: true,
             physics: const BouncingScrollPhysics(),
@@ -45,8 +99,8 @@ class HomeScreen extends StatelessWidget {
               const SearchWidget(),
               OfferWidget(
                 offers: cubit.offers,
-                activeIndex: cubit.activeIndex,
-                changeCurrentIndex: cubit.changeCurrentIndex,
+                activeIndex: cubit.activeSliderIndex,
+                changeCurrentIndex: cubit.changeCurrentSliderIndex,
               ),
               CategoryWidget(
                 categories: cubit.categories,
@@ -55,12 +109,10 @@ class HomeScreen extends StatelessWidget {
                 header: 'Best Selling',
                 products: cubit.bestSelling,
               ),
-              const SizedBox(height: 10.0),
               ProductsWidget(
                 header: 'New Arrivals',
                 products: cubit.newArrivals,
               ),
-              const SizedBox(height: 10.0),
               ProductsWidget(
                 header: 'Recommended For You',
                 products: cubit.recommendedForYou,

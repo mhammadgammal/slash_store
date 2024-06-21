@@ -11,9 +11,13 @@ class ProductsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsetsDirectional.all(10.0),
+      padding: const EdgeInsetsDirectional.only(
+        top: 10.0,
+        start: 10.0,
+        end: 10.0,
+        bottom: 0.0),
       width: MediaQuery.of(context).size.width,
-      height: 250.0,
+      height: 280.0,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -38,42 +42,70 @@ class ProductsWidget extends StatelessWidget {
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: products.length,
+              physics: const BouncingScrollPhysics(),
               itemBuilder: (_, index) {
-                return Column(
-                  children: [
-                    Stack(
-                      alignment: Alignment.topRight,
-                      children: [
-                        Image.asset(products[index].imagePath),
-                        const CircleAvatar(
-                          radius: 20.0,
-                          backgroundColor: Colors.grey,
-                          child: Icon(Icons.favorite_border_outlined),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 10.0),
-                    Text(products[index].productName),
-                    const SizedBox(height: 10.0),
-                    Row(
-                      children: [
-                        const Text(
-                          'EGP',
-                          style: TextStyle(
-                              color: Colors.black, fontWeight: FontWeight.bold),
-                        ),
-                        Text(products[index].price.toString()),
-                        const SizedBox(
-                          width: 30.0,
-                        ),
-                        const CircleAvatar(
-                          radius: 10.0,
-                          backgroundColor: Colors.black,
-                          child: Icon(Icons.add),
-                        ),
-                      ],
-                    ),
-                  ],
+                return Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Stack(
+                        alignment: Alignment.topRight,
+                        children: [
+                          Image.asset(
+                            products[index].imagePath,
+                            width: 150.0,
+                            height: 130.0,
+                          ),
+                          const CircleAvatar(
+                            radius: 20.0,
+                            backgroundColor: Colors.grey,
+                            child: Icon(Icons.favorite_border_outlined),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 10.0),
+                      Text(
+                        products[index].productName,
+                        style: const TextStyle(
+                            fontSize: 23.0, fontWeight: FontWeight.normal),
+                      ),
+                      const SizedBox(height: 10.0),
+                      Row(
+                        children: [
+                          const Text(
+                            'EGP',
+                            style: TextStyle(
+                                fontSize: 20.0,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          const SizedBox(
+                            width: 10.0,
+                          ),
+                          Text(
+                            products[index].price.toString(),
+                            style: const TextStyle(
+                                fontSize: 20.0,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          const SizedBox(
+                            width: 30.0,
+                          ),
+                          const CircleAvatar(
+                            radius: 13.0,
+                            backgroundColor: Colors.black,
+                            child: Center(
+                                child: Icon(
+                              Icons.add,
+                              color: Colors.white,
+                            )),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 );
               },
             ),

@@ -36,6 +36,7 @@ class CategoryWidget extends StatelessWidget {
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: categories.length,
+              physics: const BouncingScrollPhysics(),
               itemBuilder: (_, index) => Column(
                 children: [
                   Padding(
@@ -43,7 +44,10 @@ class CategoryWidget extends StatelessWidget {
                     child: CircleAvatar(
                       backgroundColor: const Color.fromRGBO(41, 41, 41, 1.0),
                       radius: 35.0,
-                      child: Image.asset(categories[index].$2),
+                      child: Image.asset(
+                        categories[index].$2,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                   Text(
